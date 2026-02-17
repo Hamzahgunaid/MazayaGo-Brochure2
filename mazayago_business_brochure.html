@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مزايا جو — بروشور أصحاب الأعمال</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#14C3BF;--teal-d:#0FA8A5;--teal-l:#E0F7F6;
+  --orange:#F89437;--orange-d:#E07D1F;--orange-l:#FFF3E0;
+  --green:#77C738;--green-d:#4D8A1F;--green-l:#EEF9E5;
+  --dark:#1A2332;--dark2:#2C3E50;
+  --gray:#5A6B7E;--gray-l:#8B95A1;--gray-m:#CED4DA;
+  --bg:#F5F7FA;--white:#fff;
+  --red:#C0392B;--red-l:#FFF0F0;
+  --f:'Tajawal',sans-serif;
+}
+html{font-size:16px}
+body{font-family:var(--f);background:#D0D5DB;color:var(--dark);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;align-items:center;padding:20px;min-height:100vh}
+
+.fab{position:fixed;top:20px;left:20px;z-index:999;display:flex;align-items:center;gap:7px;background:var(--dark);color:#fff;font-family:var(--f);font-size:12px;font-weight:700;padding:9px 18px;border:none;border-radius:50px;cursor:pointer;box-shadow:0 3px 20px rgba(0,0,0,.2);transition:all .2s}
+.fab:hover{background:var(--teal-d);transform:translateY(-2px);box-shadow:0 5px 28px rgba(20,195,191,.3)}
+.fab svg{width:16px;height:16px;fill:#fff}
+
+.brochure{width:210mm;background:var(--white);box-shadow:0 4px 40px rgba(0,0,0,.1)}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;background:var(--white);display:flex;flex-direction:column}
+
+.bar{height:5px;background:linear-gradient(90deg,var(--teal),var(--orange) 55%,var(--green));flex-shrink:0}
+
+.hdr{display:flex;justify-content:space-between;align-items:center;padding:11px 30px 9px;border-bottom:1px solid #EEF0F2;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:9px}
+.logo svg{flex-shrink:0}
+.logo-n{font-size:17px;font-weight:900;color:var(--gray)}
+.hdr-tag{font-size:9px;color:var(--gray-l);font-weight:500}
+
+/* HERO */
+.hero{background:var(--dark);padding:34px 34px 28px;position:relative;overflow:hidden;flex-shrink:0}
+.hero::before{content:'';position:absolute;top:-120px;left:-120px;width:380px;height:380px;background:radial-gradient(circle,rgba(20,195,191,.06) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(248,148,55,.04) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:27px;font-weight:900;color:#fff;line-height:1.45;position:relative}
+.hero h1 .hl{color:var(--orange)}
+.hero-sub{font-size:12.5px;font-weight:300;color:#A0B4C4;line-height:1.95;margin-top:14px;position:relative;max-width:96%}
+.hero-sub b{color:var(--teal);font-weight:700}
+.hero-pos{display:inline-block;margin-top:16px;background:rgba(20,195,191,.1);border:1px solid rgba(20,195,191,.2);border-radius:8px;padding:8px 16px;position:relative}
+.hero-pos span{font-size:12px;font-weight:700;color:var(--teal)}
+
+/* FRAMEWORK */
+.fw{padding:18px 34px 12px;flex-shrink:0}
+.fw-title{font-size:15px;font-weight:900;color:var(--dark);margin-bottom:4px}
+.fw-accent{display:block;height:3px;width:240px;background:linear-gradient(90deg,var(--teal),transparent);border-radius:2px;margin-bottom:14px}
+.fw-flow{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:16px}
+.fw-step{text-align:center;padding:10px 6px;border-radius:8px;position:relative}
+.fw-step::after{content:'→';position:absolute;left:-6px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--gray-m);font-weight:300}
+.fw-step:last-child::after{display:none}
+.fw-step.s1{background:var(--teal-l)}.fw-step.s2{background:var(--orange-l)}.fw-step.s3{background:var(--green-l)}.fw-step.s4{background:var(--bg)}
+.fw-icon{display:flex;justify-content:center;margin-bottom:4px}
+.fw-label{font-size:11px;font-weight:800}
+.fw-step.s1 .fw-label{color:var(--teal-d)}.fw-step.s2 .fw-label{color:var(--orange-d)}.fw-step.s3 .fw-label{color:var(--green-d)}.fw-step.s4 .fw-label{color:var(--dark2)}
+
+/* WHY */
+.why{padding:0 34px 14px;flex-shrink:0}
+.why-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:10px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.why-card{border-radius:9px;padding:12px 14px}
+.why-card.bad{background:var(--red-l);border-right:3px solid var(--red)}
+.why-card.good{background:var(--teal-l);border-right:3px solid var(--teal)}
+.why-card-title{font-size:11px;font-weight:800;margin-bottom:6px}
+.why-card.bad .why-card-title{color:var(--red)}
+.why-card.good .why-card-title{color:var(--teal-d)}
+.why-item{font-size:10px;color:var(--gray);line-height:1.65;padding:1px 0}
+.why-card.good .why-item{color:var(--dark2)}
+.why-bottom{font-size:11px;font-weight:700;color:var(--dark);text-align:center;margin-top:8px}
+
+/* CORE VALUES */
+.vals{padding:12px 34px 10px;flex-shrink:0}
+.vals-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:10px}
+.vals-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.val{border-radius:9px;padding:12px 11px;position:relative;overflow:hidden}
+.val::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;border-radius:9px 9px 0 0}
+.val.v1{background:var(--teal-l)}.val.v1::before{background:var(--teal)}
+.val.v2{background:var(--orange-l)}.val.v2::before{background:var(--orange)}
+.val.v3{background:var(--green-l)}.val.v3::before{background:var(--green)}
+.val-icon{margin-bottom:6px}
+.val-t{font-size:11.5px;font-weight:800;color:var(--dark);margin-bottom:3px}
+.val-d{font-size:9.5px;color:var(--gray);line-height:1.6}
+
+/* TEASER */
+.teaser{padding:10px 34px 8px;flex-shrink:0}
+.teaser-title{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:10px}
+.teaser-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px}
+.teaser-card{background:var(--bg);border-radius:9px;padding:12px 11px;text-align:center;border-bottom:3px solid transparent}
+.teaser-card.t1{border-bottom-color:var(--teal)}.teaser-card.t2{border-bottom-color:var(--orange)}.teaser-card.t3{border-bottom-color:var(--green)}
+.teaser-icon{display:flex;justify-content:center;margin-bottom:6px}
+.teaser-name{font-size:12px;font-weight:800;margin-bottom:4px}
+.teaser-card.t1 .teaser-name{color:var(--teal-d)}.teaser-card.t2 .teaser-name{color:var(--orange-d)}.teaser-card.t3 .teaser-name{color:var(--green-d)}
+.teaser-hint{font-size:9px;color:var(--gray);line-height:1.55}
+
+/* P1 CTA */
+.p1cta{text-align:center;padding:10px 34px 4px;flex-shrink:0}
+.p1cta-text{font-size:13px;font-weight:800;color:var(--orange)}
+.p1cta-btn{display:inline-block;font-size:10px;color:var(--gray-l);margin-top:4px}
+
+.ft{text-align:center;padding:6px 34px 8px;flex-shrink:0}
+.dots{display:flex;justify-content:center;gap:6px;margin-bottom:3px}
+.dots span{width:5px;height:5px;border-radius:50%;display:inline-block}
+.pg{font-size:8px;color:var(--gray-l)}
+
+/* PAGE 2 */
+.p2-title-section{padding:16px 34px 8px;flex-shrink:0}
+.p2-title{font-size:17px;font-weight:900;color:var(--dark)}
+.p2-accent{display:block;height:3px;width:280px;background:linear-gradient(90deg,var(--orange),transparent);border-radius:2px;margin-top:4px}
+
+.svc{padding:8px 34px 6px;flex-shrink:0}
+.svc-hdr{display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;margin-bottom:8px}
+.svc-hdr.h-teal{background:var(--teal)}.svc-hdr.h-orange{background:var(--orange)}.svc-hdr.h-green{background:var(--green)}
+.svc-hdr-icon{display:flex;align-items:center}
+.svc-hdr-title{font-size:14px;font-weight:900;color:#fff}
+
+.svc-body{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.svc-col{padding:10px 12px;border-radius:8px}
+.svc-col.col-left{background:var(--bg)}
+.svc-col.col-right{background:var(--white);border:1px solid #EEF0F2}
+
+.svc-label{font-size:9px;font-weight:800;display:inline-block;padding:2px 8px;border-radius:4px;margin-bottom:5px}
+.svc-label.l-when{background:var(--teal-l);color:var(--teal-d)}
+.svc-label.l-challenge{background:var(--red-l);color:var(--red)}
+.svc-label.l-solution{background:var(--teal-l);color:var(--teal-d)}
+
+.svc-text{font-size:10px;color:var(--gray);line-height:1.7}
+.svc-text.dark{color:var(--dark2)}
+.svc-text b{font-weight:700}
+
+.svc-results{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.svc-result-tag{font-size:9px;font-weight:700;padding:3px 8px;border-radius:12px}
+.rt-teal{color:var(--teal-d);background:var(--teal-l)}
+.rt-orange{color:var(--orange-d);background:var(--orange-l)}
+.rt-green{color:var(--green-d);background:var(--green-l)}
+
+/* RAMADAN */
+.ramadan{margin:6px 34px;border-radius:10px;padding:14px 18px;background:linear-gradient(135deg,#F89437 0%,#F5B041 50%,#F8C471 100%);flex-shrink:0;position:relative;overflow:hidden}
+.ramadan::before{content:'☪';position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:32px;opacity:.12}
+.ramadan-title{font-size:13px;font-weight:900;color:#fff;margin-bottom:4px}
+.ramadan-text{font-size:10px;color:rgba(255,255,255,.85);line-height:1.7}
+.ramadan-cta{font-size:11px;font-weight:800;color:var(--dark);margin-top:6px}
+
+/* CTA */
+.cta{margin:8px 34px 0;border-radius:14px;padding:22px 22px 18px;text-align:center;position:relative;overflow:hidden;background:linear-gradient(135deg,var(--dark) 0%,#0D7A78 100%);flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.cta::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(248,148,55,.07) 0%,transparent 70%)}
+.cta-logo{margin-bottom:12px;position:relative}
+.cta-logo .logo-n{color:#fff}
+.cta-title{font-size:24px;font-weight:900;color:#fff;margin-bottom:5px;position:relative}
+.cta-sub{font-size:12px;font-weight:300;color:#8ABFBC;margin-bottom:14px;position:relative}
+.cta-checks{display:flex;justify-content:center;gap:16px;margin-bottom:14px;position:relative}
+.cta-check{font-size:10px;font-weight:700;color:var(--teal-l)}
+.cta-btn{display:inline-block;background:var(--orange);color:#fff;font-family:var(--f);font-size:12px;font-weight:800;padding:10px 30px;border-radius:50px;text-decoration:none;position:relative;box-shadow:0 4px 18px rgba(248,148,55,.3);transition:transform .2s,box-shadow .2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(248,148,55,.4)}
+.cta-contact{display:flex;justify-content:center;gap:18px;margin-top:12px;position:relative}
+.cta-contact a{font-size:9.5px;color:rgba(142,222,221,.6);text-decoration:none;font-weight:500;direction:ltr}
+
+@media print{
+html,body{background:#fff!important;padding:0!important;margin:0!important}
+body{display:block}
+.fab{display:none!important}
+.brochure{box-shadow:none!important;width:100%!important}
+.page{width:100%!important;height:297mm!important;page-break-after:always;page-break-inside:avoid;break-after:page;break-inside:avoid;overflow:hidden!important}
+.page:last-child{page-break-after:auto}
+.cta-btn{box-shadow:none!important}
+*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+}
+@page{size:A4 portrait;margin:0}
+</style>
+</head>
+<body>
+
+<button class="fab" onclick="window.print()">
+<svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+حفظ كـ PDF
+</button>
+
+<div class="brochure">
+
+<!-- ==================== PAGE 1 ==================== -->
+<div class="page">
+<div class="bar"></div>
+<div class="hdr">
+  <div class="logo">
+    <svg width="34" height="34" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#14C3BF" opacity=".85"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#F89437" opacity=".8"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#77C738" opacity=".75"/><circle cx="24" cy="24" r="5" fill="#fff"/></svg>
+    <span class="logo-n">مزايا جو</span>
+  </div>
+  <span class="hdr-tag">بروشور أصحاب الأعمال — إصدار ما قبل الإطلاق</span>
+</div>
+
+<div class="hero">
+  <h1>حوّل كل زيارة إلى فرصة بيع...<br><span class="hl">وكل عملية شراء إلى علاقة تدوم.</span></h1>
+  <p class="hero-sub">
+    استقطاب الجمهور أصبح مهارة أساسية. لكن النمو الحقيقي يبدأ عندما تتحول تجربة الشراء نفسها إلى محرّك ولاء.
+    <b>مزايا جو</b> تساعدك على الانتقال من حملات تقليدية قصيرة الأثر إلى تجارب تفاعلية مدروسة تحفّز الفضول، تشعل الحماس، وتخلق ارتباطاً فعلياً بين علامتك وجمهورك.
+    اليوم يمكنك تصميم هذه الرحلة من البداية إلى النهاية — بسهولة، وشفافية، وبدون عبء تشغيلي.
+  </p>
+  <div class="hero-pos">
+    <span>مزايا جو ليست منصة مسابقات — بل منظومة تحويل التفاعل إلى نمو قابل للقياس.</span>
+  </div>
+</div>
+
+<!-- VALUE FRAMEWORK -->
+<div class="fw">
+  <div class="fw-title">رحلة واحدة. أربع نتائج واضحة:</div>
+  <div class="fw-accent"></div>
+  <div class="fw-flow">
+    <div class="fw-step s1">
+      <div class="fw-icon">
+        <!-- Shopping bag icon = Attract -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><path d="M10 16L14 40H34L38 16H10Z" fill="#14C3BF"/><path d="M16 16V12C16 8 20 6 24 6C28 6 32 8 32 12V16" stroke="#14C3BF" stroke-width="3" fill="none"/><circle cx="40" cy="12" r="6" fill="#F89437"/></svg>
+      </div>
+      <div class="fw-label">جذب الجمهور</div>
+    </div>
+    <div class="fw-step s2">
+      <div class="fw-icon">
+        <!-- Social/Growth icon = Engage -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="8" fill="#F89437"/><circle cx="18" cy="24" r="8" fill="#F89437"/><circle cx="30" cy="24" r="8" fill="#F89437"/><circle cx="24" cy="30" r="8" fill="#F89437"/><path d="M24 34V42" stroke="#F89437" stroke-width="3" stroke-linecap="round"/></svg>
+      </div>
+      <div class="fw-label">إشراكه</div>
+    </div>
+    <div class="fw-step s3">
+      <div class="fw-icon">
+        <!-- Trophy icon = Credibility -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><path d="M16 10H32V20C32 28 28 32 24 32C20 32 16 28 16 20V10Z" fill="#77C738"/><rect x="22" y="32" width="4" height="6" fill="#77C738"/><rect x="18" y="38" width="12" height="4" rx="1" fill="#14C3BF"/></svg>
+      </div>
+      <div class="fw-label">إثبات المصداقية</div>
+    </div>
+    <div class="fw-step s4">
+      <div class="fw-icon">
+        <!-- Target icon = Loyalty -->
+        <svg width="32" height="32" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="14" fill="#2C3E50"/><circle cx="24" cy="20" r="6" fill="#F89437"/><rect x="22" y="26" width="4" height="4" rx="1" fill="#F89437"/></svg>
+      </div>
+      <div class="fw-label">ولاء متكرر</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY THIS MATTERS -->
+<div class="why">
+  <div class="why-title">لماذا هذا مهم لعملك؟</div>
+  <div class="why-grid">
+    <div class="why-card bad">
+      <div class="why-card-title">أغلب الحملات اليوم:</div>
+      <div class="why-item">• تجلب تفاعلاً مؤقتاً</div>
+      <div class="why-item">• تستهلك وقت الفريق</div>
+      <div class="why-item">• لا تترك بيانات مفيدة</div>
+      <div class="why-item">• ولا تبني علاقة طويلة الأمد</div>
+    </div>
+    <div class="why-card good">
+      <div class="why-card-title">مع مزايا جو:</div>
+      <div class="why-item">✔ مبيعات</div>
+      <div class="why-item">✔ ثقة عامة</div>
+      <div class="why-item">✔ بيانات عملاء</div>
+      <div class="why-item">✔ عودة متكررة</div>
+    </div>
+  </div>
+  <div class="why-bottom">داخل رحلة واحدة متكاملة.</div>
+</div>
+
+<!-- CORE VALUES -->
+<div class="vals">
+  <div class="vals-title">القيم المضافة الأساسية</div>
+  <div class="vals-grid">
+    <div class="val v1">
+      <div class="val-icon">
+        <!-- QR/Grid icon = Transparency -->
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="14" height="14" rx="2" fill="#14C3BF"/><rect x="26" y="8" width="14" height="14" rx="2" fill="#F89437"/><rect x="8" y="26" width="14" height="14" rx="2" fill="#F89437"/><rect x="26" y="26" width="14" height="14" rx="2" fill="#14C3BF"/></svg>
+      </div>
+      <div class="val-t">شفافية تتحول إلى سمعة</div>
+      <div class="val-d">السحب، النتائج، والفائزون يُعلنون أمام الجمهور. هذا لا يخلق مشاركة فقط — بل يبني مصداقية قابلة للرؤية.</div>
+    </div>
+    <div class="val v2">
+      <div class="val-icon">
+        <!-- Sweepstakes alt icon = Zero manual -->
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect x="22" y="8" width="4" height="28" rx="1" fill="#F89437"/><rect x="18" y="36" width="12" height="4" rx="2" fill="#F89437"/><rect x="10" y="16" width="28" height="3" rx="1" fill="#F89437"/><ellipse cx="12" cy="28" rx="6" ry="2" fill="#14C3BF"/><ellipse cx="36" cy="28" rx="6" ry="2" fill="#14C3BF"/><circle cx="40" cy="10" r="6" fill="#77C738"/></svg>
+      </div>
+      <div class="val-t">صفر تشغيل يدوي</div>
+      <div class="val-d">لا كوبونات. لا فرز. لا تعقيد. كل شيء يتم تلقائياً داخل تجربة البيع نفسها.</div>
+    </div>
+    <div class="val v3">
+      <div class="val-icon">
+        <!-- Target icon = Data -->
+        <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="14" fill="#77C738"/><circle cx="24" cy="20" r="6" fill="#F89437"/><rect x="22" y="26" width="4" height="4" rx="1" fill="#F89437"/></svg>
+      </div>
+      <div class="val-t">بيانات تُستثمر</div>
+      <div class="val-d">بدل آلاف التعليقات العشوائية، تحصل على أثر حقيقي: عملاء، مراجعات، وتكرار شراء.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES TEASER -->
+<div class="teaser">
+  <div class="teaser-title">لمحة عن الخدمات</div>
+  <div class="teaser-grid">
+    <div class="teaser-card t1">
+      <div class="teaser-icon">
+        <!-- Service 1: Sweepstakes icon from homepage -->
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><rect x="8" y="20" width="48" height="28" rx="4" fill="rgba(20,195,191,0.12)"/><rect x="6" y="18" width="48" height="28" rx="4" fill="#14C3BF"/><line x1="20" y1="18" x2="20" y2="46" stroke="white" stroke-width="2" stroke-dasharray="4 3"/><circle cx="38" cy="32" r="12" fill="#F89437"/><path d="M38 24L40 29H45L41 33L43 38L38 35L33 38L35 33L31 29H36L38 24Z" fill="white"/></svg>
+      </div>
+      <div class="teaser-name">السحوبات</div>
+      <div class="teaser-hint">عندما تريد تسريع المبيعات وربط الشراء بالمكافأة.</div>
+    </div>
+    <div class="teaser-card t2">
+      <div class="teaser-icon">
+        <!-- Service 2: Contests icon from homepage -->
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><circle cx="34" cy="34" r="22" fill="rgba(248,148,55,0.12)"/><circle cx="32" cy="32" r="22" fill="#F89437"/><text x="32" y="42" text-anchor="middle" fill="white" font-size="28" font-weight="bold">?</text><circle cx="50" cy="14" r="8" fill="#14C3BF"/></svg>
+      </div>
+      <div class="teaser-name">المسابقات</div>
+      <div class="teaser-hint">عندما تريد تفاعلاً يرسّخ رسالتك التسويقية.</div>
+    </div>
+    <div class="teaser-card t3">
+      <div class="teaser-icon">
+        <!-- Service 3: Predictions icon from homepage -->
+        <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="54" rx="14" ry="4" fill="rgba(20,195,191,0.25)"/><rect x="24" y="48" width="16" height="8" rx="2" fill="#14C3BF"/><circle cx="32" cy="28" r="18" fill="#14C3BF"/><circle cx="32" cy="28" r="12" fill="rgba(248,148,55,0.3)"/><circle cx="32" cy="28" r="4" fill="#F89437"/></svg>
+      </div>
+      <div class="teaser-name">التوقعات</div>
+      <div class="teaser-hint">عندما تملك حدثاً كبيراً وتريد تحويل جمهوره إلى جمهورك.</div>
+    </div>
+  </div>
+</div>
+
+<div class="p1cta">
+  <div class="p1cta-text">تابع رحلتك نحو التميّز</div>
+  <div class="p1cta-btn">استكشف المسارات الثلاثة ↓</div>
+</div>
+
+<div class="ft">
+  <div class="dots"><span style="background:var(--teal)"></span><span style="background:var(--orange)"></span><span style="background:var(--green)"></span></div>
+  <div class="pg">١ / ٢</div>
+</div>
+</div>
+
+<!-- ==================== PAGE 2 ==================== -->
+<div class="page">
+<div class="bar"></div>
+<div class="hdr">
+  <div class="logo">
+    <svg width="34" height="34" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#14C3BF" opacity=".85"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#F89437" opacity=".8"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#77C738" opacity=".75"/><circle cx="24" cy="24" r="5" fill="#fff"/></svg>
+    <span class="logo-n">مزايا جو</span>
+  </div>
+  <span class="hdr-tag">اختر المسار المناسب لهدفك التجاري</span>
+</div>
+
+<div class="p2-title-section">
+  <div class="p2-title">اختر المسار المناسب لهدفك التجاري</div>
+  <div class="p2-accent"></div>
+</div>
+
+<!-- SERVICE 1: SWEEPSTAKES -->
+<div class="svc">
+  <div class="svc-hdr h-teal">
+    <span class="svc-hdr-icon">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="6" y="18" width="48" height="28" rx="4" fill="rgba(255,255,255,0.25)"/><line x1="20" y1="18" x2="20" y2="46" stroke="white" stroke-width="2" stroke-dasharray="4 3"/><circle cx="38" cy="32" r="12" fill="white" opacity=".3"/><path d="M38 24L40 29H45L41 33L43 38L38 35L33 38L35 33L31 29H36L38 24Z" fill="white"/></svg>
+    </span>
+    <span class="svc-hdr-title">السحوبات والجوائز</span>
+  </div>
+  <div class="svc-body">
+    <div class="svc-col col-left">
+      <span class="svc-label l-when">متى تستخدمها؟</span>
+      <p class="svc-text dark">عندما يكون هدفك الأساسي هو <b>زيادة المبيعات وتحفيز تكرار الشراء</b>.</p>
+      <br>
+      <span class="svc-label l-challenge">التحدي</span>
+      <p class="svc-text">العروض التقليدية أصبحت متوقعة. الفرز اليدوي مكلف. وثقة الجمهور ضعيفة.</p>
+    </div>
+    <div class="svc-col col-right">
+      <span class="svc-label l-solution">الحل مع مزايا جو</span>
+      <p class="svc-text dark">كل منتج أو فاتورة تحمل QR مخصص. العميل يمسح ← يدخل السحب تلقائياً ← الفائز يُعلن بشفافية. <b>بدون فرق تشغيل. بدون تعقيد لوجستي.</b></p>
+      <div class="svc-results">
+        <span class="svc-result-tag rt-teal">✔ زيادة المبيعات</span>
+        <span class="svc-result-tag rt-teal">✔ تكرار الشراء</span>
+        <span class="svc-result-tag rt-teal">✔ متابعون جدد</span>
+        <span class="svc-result-tag rt-teal">✔ بيانات حقيقية</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 2: CONTESTS -->
+<div class="svc">
+  <div class="svc-hdr h-orange">
+    <span class="svc-hdr-icon">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" fill="rgba(255,255,255,0.25)"/><text x="32" y="42" text-anchor="middle" fill="white" font-size="28" font-weight="bold">?</text><circle cx="50" cy="14" r="8" fill="rgba(255,255,255,0.3)"/></svg>
+    </span>
+    <span class="svc-hdr-title">المسابقات والألغاز</span>
+  </div>
+  <div class="svc-body">
+    <div class="svc-col col-left">
+      <span class="svc-label l-when">متى تستخدمها؟</span>
+      <p class="svc-text dark">عندما تريد <b>رفع التفاعل وبناء وعي أعمق بعلامتك</b>.</p>
+      <br>
+      <span class="svc-label l-challenge">التحدي</span>
+      <p class="svc-text">المنشورات العادية لا تُرى. الجمهور يمر سريعاً. والرسالة التسويقية تُنسى.</p>
+    </div>
+    <div class="svc-col col-right">
+      <span class="svc-label l-solution">الحل مع مزايا جو</span>
+      <p class="svc-text dark">أسئلة، تحديات، أو ألغاز مرتبطة بأي حدث أو منتج. الجمهور يشارك. الإجابات تُفرز تلقائياً. <b>المؤهلون يدخلون السحب.</b></p>
+      <div class="svc-results">
+        <span class="svc-result-tag rt-orange">✔ تفاعل حقيقي</span>
+        <span class="svc-result-tag rt-orange">✔ ترسيخ الرسالة</span>
+        <span class="svc-result-tag rt-orange">✔ زوار استثنائيون</span>
+        <span class="svc-result-tag rt-orange">✔ نمو المتابعين</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICE 3: PREDICTIONS -->
+<div class="svc">
+  <div class="svc-hdr h-green">
+    <span class="svc-hdr-icon">
+      <svg width="28" height="28" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="18" fill="rgba(255,255,255,0.25)"/><circle cx="32" cy="28" r="12" fill="rgba(255,255,255,0.15)"/><circle cx="32" cy="28" r="4" fill="white"/><rect x="24" y="48" width="16" height="8" rx="2" fill="rgba(255,255,255,0.3)"/></svg>
+    </span>
+    <span class="svc-hdr-title">التوقعات</span>
+  </div>
+  <div class="svc-body">
+    <div class="svc-col col-left">
+      <span class="svc-label l-when">متى تستخدمها؟</span>
+      <p class="svc-text dark">عندما تملك <b>حدثاً ينتظره الجمهور</b> (مباراة، برنامج، موسم، إطلاق منتج).</p>
+      <br>
+      <span class="svc-label l-challenge">التحدي</span>
+      <p class="svc-text">آلاف المشاركات. إدارة يدوية مستحيلة. وتجارب فوضوية تضر بالعلامة.</p>
+    </div>
+    <div class="svc-col col-right">
+      <span class="svc-label l-solution">الحل مع مزايا جو</span>
+      <p class="svc-text dark">كل توقع يُسجّل قبل الحدث. النتائج تُحسب تلقائياً بعده. <b>الفائز يُعلن بشفافية كاملة.</b></p>
+      <div class="svc-results">
+        <span class="svc-result-tag rt-green">✔ زخم جماهيري</span>
+        <span class="svc-result-tag rt-green">✔ تجربة احترافية</span>
+        <span class="svc-result-tag rt-green">✔ بيانات قيّمة</span>
+        <span class="svc-result-tag rt-green">✔ صفر تكاليف فرز</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RAMADAN -->
+<div class="ramadan">
+  <div class="ramadan-title">رمضان هو موسم التفاعل الأعلى.</div>
+  <div class="ramadan-text">العلامات التي تبدأ مبكراً تحصد أكثر. العروض، البرامج، والمسابقات تتزاحم في هذا الموسم.</div>
+  <div class="ramadan-cta">لا تنتظر البداية — ابدأ التحضير الآن.</div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="cta-logo">
+    <div class="logo" style="justify-content:center">
+      <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#fff" opacity=".25"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#fff" opacity=".2"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#fff" opacity=".15"/><circle cx="24" cy="24" r="5" fill="#fff" opacity=".9"/></svg>
+      <span class="logo-n">مزايا جو</span>
+    </div>
+  </div>
+  <div class="cta-title">ابدأ حملتك الأولى</div>
+  <div class="cta-sub">أسهل مما تتصور</div>
+  <div class="cta-checks">
+    <span class="cta-check">✔ إعداد سريع</span>
+    <span class="cta-check">✔ حملة واحدة كبداية</span>
+    <span class="cta-check">✔ دعم كامل من الفريق</span>
+  </div>
+  <a href="https://wa.me/967782233135?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AD%D9%85%D9%84%D8%AA%D9%8A%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%89%20%D9%85%D8%B9%20%D9%85%D8%B2%D8%A7%D9%8A%D8%A7%20%D8%AC%D9%88" class="cta-btn" target="_blank">ابدأ حملتك الآن</a>
+  <div class="cta-contact">
+    <a href="https://wa.me/967782233135">+967 782 233 135</a>
+    <a href="mailto:info@mazayago.com">info@mazayago.com</a>
+    <a href="https://www.mazayago.com">www.mazayago.com</a>
+  </div>
+</div>
+
+<div class="ft">
+  <div class="dots"><span style="background:var(--teal)"></span><span style="background:var(--orange)"></span><span style="background:var(--green)"></span></div>
+  <div class="pg" style="margin-top:2px">جميع الحقوق محفوظة © مزايا جو ٢٠٢٥</div>
+  <div class="pg">٢ / ٢</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
