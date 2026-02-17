@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مزايا جو — كتالوج الخدمات</title>
+<meta name="description" content="مزايا جو — منظومة تحويل التفاعل إلى نمو قابل للقياس. سحوبات، مسابقات، وتوقعات.">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/*── RESET & VARIABLES ──*/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#14C3BF;--teal-d:#0FA8A5;--teal-l:#E0F7F6;
+  --orange:#F89437;--orange-d:#E07D1F;--orange-l:#FFF3E0;
+  --green:#77C738;--green-d:#4D8A1F;--green-l:#EEF9E5;
+  --dark:#1A2332;--dark2:#2C3E50;
+  --gray:#5A6B7E;--gray-l:#8B95A1;--gray-m:#CED4DA;
+  --bg:#F5F7FA;--white:#fff;
+  --red:#C0392B;--red-l:#FFF0F0;
+  --f:'Tajawal',sans-serif;
+  --section-pad:80px 0;
+  --container:1140px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--white);color:var(--dark);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/*── UTILITY ──*/
+.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+.section-title{font-size:32px;font-weight:900;margin-bottom:8px}
+.section-subtitle{font-size:16px;color:var(--gray);line-height:1.8;max-width:640px}
+.gradient-line{display:block;height:4px;width:80px;border-radius:4px;margin-bottom:20px;background:linear-gradient(90deg,var(--teal),var(--orange),var(--green))}
+.text-center{text-align:center}
+.text-center .gradient-line{margin-inline:auto}
+.text-center .section-subtitle{margin-inline:auto}
+
+/*── ANIMATIONS ──*/
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/*── NAVBAR ──*/
+.navbar{position:fixed;top:0;right:0;left:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,0,0,.06);transition:box-shadow .3s}
+.navbar.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.08)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo svg{flex-shrink:0}
+.nav-logo-text{font-size:20px;font-weight:900;color:var(--dark)}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{font-size:14px;font-weight:600;color:var(--gray);text-decoration:none;transition:color .2s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;right:0;left:0;height:2px;background:var(--teal);border-radius:2px;transform:scaleX(0);transition:transform .25s}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;background:var(--teal);color:#fff !important;font-size:13px !important;font-weight:700;padding:9px 22px;border-radius:50px;transition:all .25s;box-shadow:0 4px 14px rgba(20,195,191,.25)}
+.nav-cta:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 6px 20px rgba(20,195,191,.35)}
+.nav-cta::after{display:none !important}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{width:24px;height:2.5px;background:var(--dark);border-radius:2px;transition:all .3s}
+
+/*── HERO ──*/
+.hero{padding:160px 0 100px;background:var(--dark);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(20,195,191,.08) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(248,148,55,.05) 0%,transparent 70%);pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero h1{font-size:48px;font-weight:900;color:#fff;line-height:1.45;margin-bottom:20px;max-width:800px}
+.hero h1 .hl{color:var(--orange)}
+.hero-sub{font-size:17px;font-weight:300;color:#A0B4C4;line-height:2;max-width:720px;margin-bottom:28px}
+.hero-sub b{color:var(--teal);font-weight:700}
+.hero-badge{display:inline-block;background:rgba(20,195,191,.12);border:1px solid rgba(20,195,191,.25);border-radius:12px;padding:12px 24px;margin-bottom:36px}
+.hero-badge span{font-size:14px;font-weight:700;color:var(--teal)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--f);font-size:15px;font-weight:800;padding:14px 36px;border-radius:50px;text-decoration:none;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(248,148,55,.3);transition:all .25s}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(248,148,55,.4)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;font-family:var(--f);font-size:15px;font-weight:600;padding:14px 36px;border-radius:50px;text-decoration:none;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .25s}
+.btn-secondary:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25)}
+
+/*── FRAMEWORK ──*/
+.framework{padding:var(--section-pad);background:var(--white)}
+.fw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.fw-card{text-align:center;padding:32px 20px;border-radius:16px;position:relative;transition:transform .3s,box-shadow .3s}
+.fw-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.06)}
+.fw-card::after{content:'←';position:absolute;left:-14px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--gray-m);font-weight:300}
+.fw-card:last-child::after{display:none}
+.fw-card.s1{background:var(--teal-l)}.fw-card.s2{background:var(--orange-l)}.fw-card.s3{background:var(--green-l)}.fw-card.s4{background:var(--bg)}
+.fw-card .fw-icon{display:flex;justify-content:center;margin-bottom:14px}
+.fw-card .fw-label{font-size:16px;font-weight:800;margin-bottom:6px}
+.fw-card.s1 .fw-label{color:var(--teal-d)}.fw-card.s2 .fw-label{color:var(--orange-d)}.fw-card.s3 .fw-label{color:var(--green-d)}.fw-card.s4 .fw-label{color:var(--dark2)}
+.fw-card .fw-desc{font-size:13px;color:var(--gray);line-height:1.7}
+
+/*── WHY ──*/
+.why-section{padding:var(--section-pad);background:var(--bg)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.why-card{border-radius:16px;padding:32px;transition:transform .3s,box-shadow .3s}
+.why-card:hover{transform:translateY(-4px)}
+.why-card.bad{background:var(--red-l);border-right:4px solid var(--red)}
+.why-card.good{background:var(--teal-l);border-right:4px solid var(--teal)}
+.why-card-title{font-size:18px;font-weight:800;margin-bottom:16px}
+.why-card.bad .why-card-title{color:var(--red)}
+.why-card.good .why-card-title{color:var(--teal-d)}
+.why-item{font-size:15px;color:var(--gray);line-height:2;padding:2px 0}
+.why-card.good .why-item{color:var(--dark2)}
+.why-bottom{font-size:18px;font-weight:700;color:var(--dark);text-align:center;margin-top:24px;padding:16px;background:var(--white);border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+
+/*── VALUES ──*/
+.values{padding:var(--section-pad);background:var(--white)}
+.vals-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.val-card{border-radius:16px;padding:32px 24px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.val-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.val-card::before{content:'';position:absolute;top:0;right:0;left:0;height:4px;border-radius:16px 16px 0 0}
+.val-card.v1{background:var(--teal-l)}.val-card.v1::before{background:var(--teal)}
+.val-card.v2{background:var(--orange-l)}.val-card.v2::before{background:var(--orange)}
+.val-card.v3{background:var(--green-l)}.val-card.v3::before{background:var(--green)}
+.val-card .val-icon{margin-bottom:16px}
+.val-card .val-t{font-size:18px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.val-card .val-d{font-size:14px;color:var(--gray);line-height:1.8}
+
+/*── SERVICES ──*/
+.services{padding:var(--section-pad);background:var(--bg)}
+.svc-block{margin-top:40px}
+.svc-block+.svc-block{margin-top:48px}
+.svc-header{display:flex;align-items:center;gap:14px;padding:16px 24px;border-radius:14px;margin-bottom:20px}
+.svc-header.h-teal{background:var(--teal)}.svc-header.h-orange{background:var(--orange)}.svc-header.h-green{background:var(--green)}
+.svc-header-icon{display:flex;align-items:center}
+.svc-header-title{font-size:22px;font-weight:900;color:#fff}
+.svc-body{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.svc-col{padding:28px;border-radius:14px}
+.svc-col.col-left{background:var(--white)}
+.svc-col.col-right{background:var(--white);border:2px solid #EEF0F2}
+.svc-label{font-size:12px;font-weight:800;display:inline-block;padding:4px 14px;border-radius:8px;margin-bottom:10px}
+.svc-label.l-when{background:var(--teal-l);color:var(--teal-d)}
+.svc-label.l-challenge{background:var(--red-l);color:var(--red)}
+.svc-label.l-solution{background:var(--teal-l);color:var(--teal-d)}
+.svc-text{font-size:15px;color:var(--gray);line-height:1.85}
+.svc-text.dark{color:var(--dark2)}
+.svc-text b{font-weight:700}
+.svc-results{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.svc-result-tag{font-size:13px;font-weight:700;padding:6px 14px;border-radius:20px}
+.rt-teal{color:var(--teal-d);background:var(--teal-l)}
+.rt-orange{color:var(--orange-d);background:var(--orange-l)}
+.rt-green{color:var(--green-d);background:var(--green-l)}
+
+/*── SERVICE TEASERS (Overview cards) ──*/
+.svc-teasers{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;margin-bottom:48px}
+.teaser-card{background:var(--white);border-radius:16px;padding:32px 24px;text-align:center;border-bottom:4px solid transparent;transition:transform .3s,box-shadow .3s;cursor:pointer}
+.teaser-card:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(0,0,0,.08)}
+.teaser-card.t1{border-bottom-color:var(--teal)}.teaser-card.t2{border-bottom-color:var(--orange)}.teaser-card.t3{border-bottom-color:var(--green)}
+.teaser-card .teaser-icon{display:flex;justify-content:center;margin-bottom:16px}
+.teaser-card .teaser-name{font-size:18px;font-weight:800;margin-bottom:8px}
+.teaser-card.t1 .teaser-name{color:var(--teal-d)}.teaser-card.t2 .teaser-name{color:var(--orange-d)}.teaser-card.t3 .teaser-name{color:var(--green-d)}
+.teaser-card .teaser-hint{font-size:14px;color:var(--gray);line-height:1.7}
+
+/*── RAMADAN ──*/
+.ramadan-section{padding:60px 0}
+.ramadan-banner{border-radius:20px;padding:48px;background:linear-gradient(135deg,#F89437 0%,#F5B041 50%,#F8C471 100%);position:relative;overflow:hidden;text-align:center}
+.ramadan-banner::before{content:'☪';position:absolute;left:40px;top:50%;transform:translateY(-50%);font-size:80px;opacity:.1}
+.ramadan-banner::after{content:'☪';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:60px;opacity:.08}
+.ramadan-banner .ramadan-title{font-size:28px;font-weight:900;color:#fff;margin-bottom:10px;position:relative}
+.ramadan-banner .ramadan-text{font-size:16px;color:rgba(255,255,255,.9);line-height:1.9;max-width:600px;margin:0 auto 16px;position:relative}
+.ramadan-banner .ramadan-cta{font-size:18px;font-weight:800;color:var(--dark);position:relative}
+
+/*── CTA ──*/
+.cta-section{padding:100px 0;background:linear-gradient(135deg,var(--dark) 0%,#0D7A78 100%);text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(248,148,55,.07) 0%,transparent 70%)}
+.cta-section::after{content:'';position:absolute;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(20,195,191,.06) 0%,transparent 70%)}
+.cta-logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px;position:relative}
+.cta-logo .logo-n{font-size:24px;font-weight:900;color:#fff}
+.cta-title{font-size:40px;font-weight:900;color:#fff;margin-bottom:8px;position:relative}
+.cta-sub{font-size:18px;font-weight:300;color:#8ABFBC;margin-bottom:28px;position:relative}
+.cta-checks{display:flex;justify-content:center;gap:24px;margin-bottom:28px;position:relative;flex-wrap:wrap}
+.cta-check{font-size:15px;font-weight:700;color:var(--teal-l)}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;font-family:var(--f);font-size:16px;font-weight:800;padding:16px 44px;border-radius:50px;text-decoration:none;position:relative;box-shadow:0 6px 24px rgba(248,148,55,.35);transition:all .25s}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(248,148,55,.45)}
+.cta-contact{display:flex;justify-content:center;gap:24px;margin-top:24px;position:relative;flex-wrap:wrap}
+.cta-contact a{font-size:14px;color:rgba(142,222,221,.7);text-decoration:none;font-weight:500;direction:ltr;transition:color .2s}
+.cta-contact a:hover{color:#fff}
+
+/*── FOOTER ──*/
+.footer{background:var(--dark);padding:32px 0;border-top:4px solid;border-image:linear-gradient(90deg,var(--teal),var(--orange),var(--green)) 1}
+.footer .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-logo{display:flex;align-items:center;gap:10px}
+.footer-logo .logo-n{font-size:16px;font-weight:900;color:var(--gray-l)}
+.footer-text{font-size:13px;color:var(--gray-l)}
+
+/*── MOBILE NAV ──*/
+.mobile-menu{display:none;position:fixed;top:68px;right:0;left:0;background:var(--white);padding:20px 24px;box-shadow:0 8px 32px rgba(0,0,0,.1);z-index:999;flex-direction:column;gap:4px;border-bottom:3px solid;border-image:linear-gradient(90deg,var(--teal),var(--orange),var(--green)) 1}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:16px;font-weight:600;color:var(--gray);text-decoration:none;padding:12px 0;border-bottom:1px solid #EEF0F2;transition:color .2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--teal)}
+
+/*── RESPONSIVE ──*/
+@media(max-width:992px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero h1{font-size:36px}
+  .fw-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .fw-card::after{display:none}
+  .svc-teasers{grid-template-columns:1fr 1fr}
+  .svc-body{grid-template-columns:1fr}
+  .vals-grid{grid-template-columns:1fr 1fr}
+  .cta-title{font-size:32px}
+}
+@media(max-width:640px){
+  :root{--section-pad:60px 0}
+  .hero{padding:120px 0 60px}
+  .hero h1{font-size:28px}
+  .hero-sub{font-size:15px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn-primary,.hero-actions .btn-secondary{justify-content:center}
+  .fw-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .vals-grid{grid-template-columns:1fr}
+  .svc-teasers{grid-template-columns:1fr}
+  .section-title{font-size:26px}
+  .cta-title{font-size:26px}
+  .cta-checks{flex-direction:column;gap:8px}
+  .footer .container{flex-direction:column;text-align:center}
+  .ramadan-banner{padding:32px 20px}
+  .ramadan-banner .ramadan-title{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="#" class="nav-logo">
+      <svg width="38" height="38" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#14C3BF" opacity=".85"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#F89437" opacity=".8"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#77C738" opacity=".75"/><circle cx="24" cy="24" r="5" fill="#fff"/></svg>
+      <span class="nav-logo-text">مزايا جو</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#hero">الرئيسية</a></li>
+      <li><a href="#framework">المنهجية</a></li>
+      <li><a href="#why">لماذا مزايا جو</a></li>
+      <li><a href="#values">القيم</a></li>
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#cta" class="nav-cta">ابدأ الآن</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hero">الرئيسية</a>
+  <a href="#framework">المنهجية</a>
+  <a href="#why">لماذا مزايا جو</a>
+  <a href="#values">القيم</a>
+  <a href="#services">الخدمات</a>
+  <a href="#cta">ابدأ الآن</a>
+</div>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <h1 class="reveal">حوّل كل زيارة إلى فرصة بيع...<br><span class="hl">وكل عملية شراء إلى علاقة تدوم.</span></h1>
+    <p class="hero-sub reveal reveal-delay-1">
+      استقطاب الجمهور أصبح مهارة أساسية. لكن النمو الحقيقي يبدأ عندما تتحول تجربة الشراء نفسها إلى محرّك ولاء.
+      <b>مزايا جو</b> تساعدك على الانتقال من حملات تقليدية قصيرة الأثر إلى تجارب تفاعلية مدروسة تحفّز الفضول، تشعل الحماس، وتخلق ارتباطاً فعلياً بين علامتك وجمهورك.
+    </p>
+    <div class="hero-badge reveal reveal-delay-2">
+      <span>مزايا جو ليست منصة مسابقات — بل منظومة تحويل التفاعل إلى نمو قابل للقياس.</span>
+    </div>
+    <div class="hero-actions reveal reveal-delay-3">
+      <a href="#services" class="btn-primary">استكشف الخدمات</a>
+      <a href="#cta" class="btn-secondary">تواصل معنا</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FRAMEWORK ═══════════ -->
+<section class="framework" id="framework">
+  <div class="container">
+    <div class="section-title reveal">رحلة واحدة. أربع نتائج واضحة:</div>
+    <div class="gradient-line reveal"></div>
+    <div class="fw-grid">
+      <div class="fw-card s1 reveal">
+        <div class="fw-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M10 16L14 40H34L38 16H10Z" fill="#14C3BF"/><path d="M16 16V12C16 8 20 6 24 6C28 6 32 8 32 12V16" stroke="#14C3BF" stroke-width="3" fill="none"/><circle cx="40" cy="12" r="6" fill="#F89437"/></svg>
+        </div>
+        <div class="fw-label">جذب الجمهور</div>
+        <div class="fw-desc">حوّل كل عملية بيع إلى فرصة لجذب عملاء جدد.</div>
+      </div>
+      <div class="fw-card s2 reveal reveal-delay-1">
+        <div class="fw-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="18" r="8" fill="#F89437"/><circle cx="18" cy="24" r="8" fill="#F89437"/><circle cx="30" cy="24" r="8" fill="#F89437"/><circle cx="24" cy="30" r="8" fill="#F89437"/><path d="M24 34V42" stroke="#F89437" stroke-width="3" stroke-linecap="round"/></svg>
+        </div>
+        <div class="fw-label">إشراكه</div>
+        <div class="fw-desc">أشرك جمهورك بتجارب تفاعلية لا تُنسى.</div>
+      </div>
+      <div class="fw-card s3 reveal reveal-delay-2">
+        <div class="fw-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M16 10H32V20C32 28 28 32 24 32C20 32 16 28 16 20V10Z" fill="#77C738"/><rect x="22" y="32" width="4" height="6" fill="#77C738"/><rect x="18" y="38" width="12" height="4" rx="1" fill="#14C3BF"/></svg>
+        </div>
+        <div class="fw-label">إثبات المصداقية</div>
+        <div class="fw-desc">نتائج شفافة تبني ثقة حقيقية مع جمهورك.</div>
+      </div>
+      <div class="fw-card s4 reveal reveal-delay-3">
+        <div class="fw-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="14" fill="#2C3E50"/><circle cx="24" cy="20" r="6" fill="#F89437"/><rect x="22" y="26" width="4" height="4" rx="1" fill="#F89437"/></svg>
+        </div>
+        <div class="fw-label">ولاء متكرر</div>
+        <div class="fw-desc">ابنِ علاقة طويلة الأمد تُترجم إلى عودة مستمرة.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHY ═══════════ -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="section-title reveal">لماذا هذا مهم لعملك؟</div>
+    <div class="gradient-line reveal"></div>
+    <div class="why-grid">
+      <div class="why-card bad reveal">
+        <div class="why-card-title">أغلب الحملات اليوم:</div>
+        <div class="why-item">• تجلب تفاعلاً مؤقتاً</div>
+        <div class="why-item">• تستهلك وقت الفريق</div>
+        <div class="why-item">• لا تترك بيانات مفيدة</div>
+        <div class="why-item">• ولا تبني علاقة طويلة الأمد</div>
+      </div>
+      <div class="why-card good reveal reveal-delay-1">
+        <div class="why-card-title">مع مزايا جو:</div>
+        <div class="why-item">✔ مبيعات</div>
+        <div class="why-item">✔ ثقة عامة</div>
+        <div class="why-item">✔ بيانات عملاء</div>
+        <div class="why-item">✔ عودة متكررة</div>
+      </div>
+    </div>
+    <div class="why-bottom reveal reveal-delay-2">داخل رحلة واحدة متكاملة.</div>
+  </div>
+</section>
+
+<!-- ═══════════ VALUES ═══════════ -->
+<section class="values" id="values">
+  <div class="container">
+    <div class="section-title reveal">القيم المضافة الأساسية</div>
+    <div class="gradient-line reveal"></div>
+    <div class="vals-grid">
+      <div class="val-card v1 reveal">
+        <div class="val-icon">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="14" height="14" rx="2" fill="#14C3BF"/><rect x="26" y="8" width="14" height="14" rx="2" fill="#F89437"/><rect x="8" y="26" width="14" height="14" rx="2" fill="#F89437"/><rect x="26" y="26" width="14" height="14" rx="2" fill="#14C3BF"/></svg>
+        </div>
+        <div class="val-t">شفافية تتحول إلى سمعة</div>
+        <div class="val-d">السحب، النتائج، والفائزون يُعلنون أمام الجمهور. هذا لا يخلق مشاركة فقط — بل يبني مصداقية قابلة للرؤية.</div>
+      </div>
+      <div class="val-card v2 reveal reveal-delay-1">
+        <div class="val-icon">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><rect x="22" y="8" width="4" height="28" rx="1" fill="#F89437"/><rect x="18" y="36" width="12" height="4" rx="2" fill="#F89437"/><rect x="10" y="16" width="28" height="3" rx="1" fill="#F89437"/><ellipse cx="12" cy="28" rx="6" ry="2" fill="#14C3BF"/><ellipse cx="36" cy="28" rx="6" ry="2" fill="#14C3BF"/><circle cx="40" cy="10" r="6" fill="#77C738"/></svg>
+        </div>
+        <div class="val-t">صفر تشغيل يدوي</div>
+        <div class="val-d">لا كوبونات. لا فرز. لا تعقيد. كل شيء يتم تلقائياً داخل تجربة البيع نفسها.</div>
+      </div>
+      <div class="val-card v3 reveal reveal-delay-2">
+        <div class="val-icon">
+          <svg width="40" height="40" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="14" fill="#77C738"/><circle cx="24" cy="20" r="6" fill="#F89437"/><rect x="22" y="26" width="4" height="4" rx="1" fill="#F89437"/></svg>
+        </div>
+        <div class="val-t">بيانات تُستثمر</div>
+        <div class="val-d">بدل آلاف التعليقات العشوائية، تحصل على أثر حقيقي: عملاء، مراجعات، وتكرار شراء.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SERVICES ═══════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-title reveal">خدماتنا</div>
+      <div class="gradient-line reveal"></div>
+      <div class="section-subtitle reveal">اختر المسار المناسب لهدفك التجاري</div>
+    </div>
+
+    <!-- Service Teaser Cards -->
+    <div class="svc-teasers">
+      <div class="teaser-card t1 reveal">
+        <div class="teaser-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect x="8" y="20" width="48" height="28" rx="4" fill="rgba(20,195,191,0.12)"/><rect x="6" y="18" width="48" height="28" rx="4" fill="#14C3BF"/><line x1="20" y1="18" x2="20" y2="46" stroke="white" stroke-width="2" stroke-dasharray="4 3"/><circle cx="38" cy="32" r="12" fill="#F89437"/><path d="M38 24L40 29H45L41 33L43 38L38 35L33 38L35 33L31 29H36L38 24Z" fill="white"/></svg>
+        </div>
+        <div class="teaser-name">السحوبات والجوائز</div>
+        <div class="teaser-hint">عندما تريد تسريع المبيعات وربط الشراء بالمكافأة.</div>
+      </div>
+      <div class="teaser-card t2 reveal reveal-delay-1">
+        <div class="teaser-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="34" cy="34" r="22" fill="rgba(248,148,55,0.12)"/><circle cx="32" cy="32" r="22" fill="#F89437"/><text x="32" y="42" text-anchor="middle" fill="white" font-size="28" font-weight="bold">?</text><circle cx="50" cy="14" r="8" fill="#14C3BF"/></svg>
+        </div>
+        <div class="teaser-name">المسابقات والألغاز</div>
+        <div class="teaser-hint">عندما تريد تفاعلاً يرسّخ رسالتك التسويقية.</div>
+      </div>
+      <div class="teaser-card t3 reveal reveal-delay-2">
+        <div class="teaser-icon">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><ellipse cx="32" cy="54" rx="14" ry="4" fill="rgba(20,195,191,0.25)"/><rect x="24" y="48" width="16" height="8" rx="2" fill="#14C3BF"/><circle cx="32" cy="28" r="18" fill="#14C3BF"/><circle cx="32" cy="28" r="12" fill="rgba(248,148,55,0.3)"/><circle cx="32" cy="28" r="4" fill="#F89437"/></svg>
+        </div>
+        <div class="teaser-name">التوقعات</div>
+        <div class="teaser-hint">عندما تملك حدثاً كبيراً وتريد تحويل جمهوره إلى جمهورك.</div>
+      </div>
+    </div>
+
+    <!-- Service 1: Sweepstakes Detail -->
+    <div class="svc-block reveal">
+      <div class="svc-header h-teal">
+        <span class="svc-header-icon">
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none"><rect x="6" y="18" width="48" height="28" rx="4" fill="rgba(255,255,255,0.25)"/><line x1="20" y1="18" x2="20" y2="46" stroke="white" stroke-width="2" stroke-dasharray="4 3"/><circle cx="38" cy="32" r="12" fill="white" opacity=".3"/><path d="M38 24L40 29H45L41 33L43 38L38 35L33 38L35 33L31 29H36L38 24Z" fill="white"/></svg>
+        </span>
+        <span class="svc-header-title">السحوبات والجوائز</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-col col-left">
+          <span class="svc-label l-when">متى تستخدمها؟</span>
+          <p class="svc-text dark">عندما يكون هدفك الأساسي هو <b>زيادة المبيعات وتحفيز تكرار الشراء</b>.</p>
+          <br>
+          <span class="svc-label l-challenge">التحدي</span>
+          <p class="svc-text">العروض التقليدية أصبحت متوقعة. الفرز اليدوي مكلف. وثقة الجمهور ضعيفة.</p>
+        </div>
+        <div class="svc-col col-right">
+          <span class="svc-label l-solution">الحل مع مزايا جو</span>
+          <p class="svc-text dark">كل منتج أو فاتورة تحمل QR مخصص. العميل يمسح ← يدخل السحب تلقائياً ← الفائز يُعلن بشفافية. <b>بدون فرق تشغيل. بدون تعقيد لوجستي.</b></p>
+          <div class="svc-results">
+            <span class="svc-result-tag rt-teal">✔ زيادة المبيعات</span>
+            <span class="svc-result-tag rt-teal">✔ تكرار الشراء</span>
+            <span class="svc-result-tag rt-teal">✔ متابعون جدد</span>
+            <span class="svc-result-tag rt-teal">✔ بيانات حقيقية</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 2: Contests Detail -->
+    <div class="svc-block reveal">
+      <div class="svc-header h-orange">
+        <span class="svc-header-icon">
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="22" fill="rgba(255,255,255,0.25)"/><text x="32" y="42" text-anchor="middle" fill="white" font-size="28" font-weight="bold">?</text><circle cx="50" cy="14" r="8" fill="rgba(255,255,255,0.3)"/></svg>
+        </span>
+        <span class="svc-header-title">المسابقات والألغاز</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-col col-left">
+          <span class="svc-label l-when">متى تستخدمها؟</span>
+          <p class="svc-text dark">عندما تريد <b>رفع التفاعل وبناء وعي أعمق بعلامتك</b>.</p>
+          <br>
+          <span class="svc-label l-challenge">التحدي</span>
+          <p class="svc-text">المنشورات العادية لا تُرى. الجمهور يمر سريعاً. والرسالة التسويقية تُنسى.</p>
+        </div>
+        <div class="svc-col col-right">
+          <span class="svc-label l-solution">الحل مع مزايا جو</span>
+          <p class="svc-text dark">أسئلة، تحديات، أو ألغاز مرتبطة بأي حدث أو منتج. الجمهور يشارك. الإجابات تُفرز تلقائياً. <b>المؤهلون يدخلون السحب.</b></p>
+          <div class="svc-results">
+            <span class="svc-result-tag rt-orange">✔ تفاعل حقيقي</span>
+            <span class="svc-result-tag rt-orange">✔ ترسيخ الرسالة</span>
+            <span class="svc-result-tag rt-orange">✔ زوار استثنائيون</span>
+            <span class="svc-result-tag rt-orange">✔ نمو المتابعين</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service 3: Predictions Detail -->
+    <div class="svc-block reveal">
+      <div class="svc-header h-green">
+        <span class="svc-header-icon">
+          <svg width="36" height="36" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="18" fill="rgba(255,255,255,0.25)"/><circle cx="32" cy="28" r="12" fill="rgba(255,255,255,0.15)"/><circle cx="32" cy="28" r="4" fill="white"/><rect x="24" y="48" width="16" height="8" rx="2" fill="rgba(255,255,255,0.3)"/></svg>
+        </span>
+        <span class="svc-header-title">التوقعات</span>
+      </div>
+      <div class="svc-body">
+        <div class="svc-col col-left">
+          <span class="svc-label l-when">متى تستخدمها؟</span>
+          <p class="svc-text dark">عندما تملك <b>حدثاً ينتظره الجمهور</b> (مباراة، برنامج، موسم، إطلاق منتج).</p>
+          <br>
+          <span class="svc-label l-challenge">التحدي</span>
+          <p class="svc-text">آلاف المشاركات. إدارة يدوية مستحيلة. وتجارب فوضوية تضر بالعلامة.</p>
+        </div>
+        <div class="svc-col col-right">
+          <span class="svc-label l-solution">الحل مع مزايا جو</span>
+          <p class="svc-text dark">كل توقع يُسجّل قبل الحدث. النتائج تُحسب تلقائياً بعده. <b>الفائز يُعلن بشفافية كاملة.</b></p>
+          <div class="svc-results">
+            <span class="svc-result-tag rt-green">✔ زخم جماهيري</span>
+            <span class="svc-result-tag rt-green">✔ تجربة احترافية</span>
+            <span class="svc-result-tag rt-green">✔ بيانات قيّمة</span>
+            <span class="svc-result-tag rt-green">✔ صفر تكاليف فرز</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RAMADAN ═══════════ -->
+<section class="ramadan-section">
+  <div class="container">
+    <div class="ramadan-banner reveal">
+      <div class="ramadan-title">رمضان هو موسم التفاعل الأعلى.</div>
+      <div class="ramadan-text">العلامات التي تبدأ مبكراً تحصد أكثر. العروض، البرامج، والمسابقات تتزاحم في هذا الموسم.</div>
+      <div class="ramadan-cta">لا تنتظر البداية — ابدأ التحضير الآن.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA ═══════════ -->
+<section class="cta-section" id="cta">
+  <div class="container">
+    <div class="cta-logo reveal">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#fff" opacity=".25"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#fff" opacity=".2"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#fff" opacity=".15"/><circle cx="24" cy="24" r="5" fill="#fff" opacity=".9"/></svg>
+      <span class="logo-n" style="font-size:28px;font-weight:900;color:#fff">مزايا جو</span>
+    </div>
+    <div class="cta-title reveal">ابدأ حملتك الأولى</div>
+    <div class="cta-sub reveal">أسهل مما تتصور</div>
+    <div class="cta-checks reveal">
+      <span class="cta-check">✔ إعداد سريع</span>
+      <span class="cta-check">✔ حملة واحدة كبداية</span>
+      <span class="cta-check">✔ دعم كامل من الفريق</span>
+    </div>
+    <a href="https://wa.me/967782233135?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A8%D8%AF%D8%A1%20%D8%AD%D9%85%D9%84%D8%AA%D9%8A%20%D8%A7%D9%84%D8%A3%D9%88%D9%84%D9%89%20%D9%85%D8%B9%20%D9%85%D8%B2%D8%A7%D9%8A%D8%A7%20%D8%AC%D9%88" class="cta-btn reveal" target="_blank">ابدأ حملتك الآن</a>
+    <div class="cta-contact reveal">
+      <a href="https://wa.me/967782233135">+967 782 233 135</a>
+      <a href="mailto:info@mazayago.com">info@mazayago.com</a>
+      <a href="https://www.mazayago.com">www.mazayago.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none"><rect x="4" y="14" width="22" height="22" rx="6" fill="#14C3BF" opacity=".5"/><rect x="14" y="8" width="22" height="22" rx="6" fill="#F89437" opacity=".45"/><rect x="20" y="18" width="22" height="22" rx="6" fill="#77C738" opacity=".4"/><circle cx="24" cy="24" r="5" fill="#fff" opacity=".5"/></svg>
+      <span class="logo-n" style="font-size:16px;font-weight:900;color:var(--gray-l)">مزايا جو</span>
+    </div>
+    <div class="footer-text">جميع الحقوق محفوظة &copy; مزايا جو ٢٠٢٥</div>
+  </div>
+</footer>
+
+<script>
+// ── Navbar scroll effect ──
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── Mobile menu toggle ──
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+navToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  const spans = navToggle.querySelectorAll('span');
+  if (mobileMenu.classList.contains('open')) {
+    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+});
+
+// Close mobile menu on link click
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    const spans = navToggle.querySelectorAll('span');
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  });
+});
+
+// ── Scroll reveal ──
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// ── Active nav link highlight ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>
